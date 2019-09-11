@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+      background: url(close-up-blank-old-concrete-wall_23-2147856094.jpg);
+      background-size: cover;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+h2, h3 {
+    padding-top: 20px;
+}
+
+  
+h1 {
+    background-color:grey;
+    line-height: 60px;
+    padding: 0 80px;
+    border: 1px solid black;
+   
+}
+.new-post, .listing {
+    padding: 0 80px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: brown;
+    height: 30px;
+    width: 80px;
+    
+}
+
+textarea {
+    resize: none;
+}
+
+.post p{
+    border: 1px solid black;
+}

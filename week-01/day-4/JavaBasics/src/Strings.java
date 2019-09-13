@@ -9,7 +9,6 @@ public class Strings {
         System.out.println("My favourite number is " + 8 + ".");
 
 
-
-
     }
 }
+

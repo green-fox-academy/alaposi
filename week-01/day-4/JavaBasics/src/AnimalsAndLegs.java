@@ -2,13 +2,11 @@ import java.util.Scanner;
 
 public class AnimalsAndLegs {
     public static void main(String[] args) {
-        Scanner chicken = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("How many chickens do you have?");
-        int chickenQty = chicken.nextInt();
-
-        Scanner pig = new Scanner(System.in);
+        int chickenQty = input.nextInt();
         System.out.println("How many pigs do you have?");
-        int pigQty = pig.nextInt();
+        int pigQty = input.nextInt();
 
         int totalLegs = chickenQty * 2 + pigQty * 4;
 

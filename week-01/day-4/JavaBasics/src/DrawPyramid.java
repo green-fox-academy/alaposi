@@ -10,15 +10,13 @@ public class DrawPyramid {
             for (int j = 1; j < lines * 2; j++) {
                 if (j < (lines - i) || j > (lines + i)) {
                     System.out.print(" ");
-                }
-                else {
+                } else {
                     System.out.print("*");
                 }
-
             }
             System.out.println();
-
         }
+        System.out.println("wtf");
 
     }
 }

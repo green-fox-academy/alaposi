@@ -13,6 +13,7 @@ public class CompareLength {
 }
 
 
+
 // - Create an array variable named `p1`
 //   with the following content: `[1, 2, 3]`
 // - Create an array variable named `p2`

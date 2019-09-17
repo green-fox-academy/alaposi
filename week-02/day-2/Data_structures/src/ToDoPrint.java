@@ -6,6 +6,7 @@ public class ToDoPrint {
         todoText = sb.insert(0, "My todo:\n").toString();
         todoText = sb.insert(todoText.length()-1, "\n - Download games").toString();
         todoText = sb.insert(todoText.length()-1, "\n     - Diablo" ).toString();
+        todoText = sb.append("     - nem kell inserttel baszakodni").toString();
 
         System.out.println(todoText);
     }

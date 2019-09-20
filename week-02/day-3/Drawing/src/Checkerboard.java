@@ -18,36 +18,13 @@ public class Checkerboard {
         if (i % 2 == 0 && j % 2 != 0) {
           graphics.setColor(Color.black);
           graphics.fillRect(offset1 + i * size, offset2 + j * size, size, size);
-          graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
-        } else {
-          graphics.setColor(Color.black);
-          graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
-        }
 
-        if (i % 2 != 0 && j % 2 == 0) {
+        } else if (i % 2 != 0 && j % 2 == 0) {
           graphics.setColor(Color.black);
           graphics.fillRect(offset1 + i * size, offset2 + j * size, size, size);
-          graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
-        } else {
-          graphics.setColor(Color.black);
-          graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
         }
       }
     }
-
-    //      for (int i = 0; i < WIDTH/size; i++) {
-    //          for (int j = 0; j < WIDTH/size; j++) {
-    //
-    //              if (i == j) {
-    //                  graphics.setColor(Color.black);
-    //                  graphics.fillRect(offset1 + i * size, offset2 + j * size, size, size);
-    //                  graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
-    //              } else {
-    //                  graphics.setColor(Color.black);
-    //                  graphics.drawRect(offset1 + i * size, offset2 + j * size, size, size);
-    //              }
-    //          }
-    //      }
   }
 
   // Don't touch the code below

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PeronalFinance {
     public static void main(String[] args) {
@@ -14,12 +15,15 @@ public class PeronalFinance {
 
         ArrayList<Integer> finance = new ArrayList<>();
 
-        finance.add(500);
-        finance.add(1000);
-        finance.add(1250);
-        finance.add(175);
-        finance.add(800);
-        finance.add(120);
+        Integer [] expenses = {500, 1000, 1250, 175, 800, 120};
+        finance.addAll(Arrays.asList(expenses));
+
+//        finance.add(500);
+//        finance.add(1000);
+//        finance.add(1250);
+//        finance.add(175);
+//        finance.add(800);
+//        finance.add(120);
 
         int totalExpense = 0;
         for (int i = 0; i < finance.size(); i++) {
@@ -49,3 +53,4 @@ public class PeronalFinance {
         System.out.println("Average amount spent: " + average);
     }
 }
+

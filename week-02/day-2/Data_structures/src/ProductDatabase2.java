@@ -18,34 +18,29 @@ public class ProductDatabase2 {
 //    Which products cost more than 150? (name + price)
 
     checker(prices);
-
   }
-
 
   public static void checker(HashMap<String, Integer> prices) {
     HashMap<String, Integer> less = new HashMap<>();
     System.out.print("The following products cost less than 201: ");
     for (Map.Entry<String, Integer> obj : prices.entrySet()) {
-      if (obj.getValue() < 201) {
-        less.put(obj.getKey(), obj.getValue());
-      }
-    }
-    for (String key : less.keySet()) {
-      System.out.print(key + ", ");
-    }
+      if (obj.getValue() < 201)
+        System.out.print(obj.getKey() + ", ");
+       }
 
 
-    HashMap<String, Integer> more = new HashMap<>();
-    System.out.println("\nThe following products cost more than 150: ");
+      HashMap<String, Integer> more = new HashMap<>();
+      System.out.println("\nThe following products cost more than 150: ");
 
-    for (Map.Entry<String, Integer> obj : prices.entrySet()) {
-      if (obj.getValue() > 150) {
-        more.put(obj.getKey(), obj.getValue());
-        System.out.println(obj.getKey() + ": " + obj.getValue());
+      for (Map.Entry<String, Integer> obj : prices.entrySet()) {
+        if (obj.getValue() > 150) {
+          more.put(obj.getKey(), obj.getValue());
+          System.out.println(obj.getKey() + ": " + obj.getValue());
+        }
       }
     }
   }
-}
+
 
 
 

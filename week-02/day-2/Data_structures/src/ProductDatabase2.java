@@ -21,7 +21,6 @@ public class ProductDatabase2 {
   }
 
   public static void checker(HashMap<String, Integer> prices) {
-    HashMap<String, Integer> less = new HashMap<>();
     System.out.print("The following products cost less than 201: ");
     for (Map.Entry<String, Integer> obj : prices.entrySet()) {
       if (obj.getValue() < 201)
@@ -29,12 +28,10 @@ public class ProductDatabase2 {
        }
 
 
-      HashMap<String, Integer> more = new HashMap<>();
       System.out.println("\nThe following products cost more than 150: ");
-
       for (Map.Entry<String, Integer> obj : prices.entrySet()) {
         if (obj.getValue() > 150) {
-          more.put(obj.getKey(), obj.getValue());
+          //more.put(obj.getKey(), obj.getValue());
           System.out.println(obj.getKey() + ": " + obj.getValue());
         }
       }

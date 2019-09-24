@@ -10,7 +10,7 @@ public class CopyFile {
 // It should take the filenames as parameters
 // It should return a boolean that shows if the copy was successful
 
-    String inputFile = "my_file4.txt";
+    String inputFile = "my_file2.txt";
     String outputFile = "my_file3.txt";
 
     System.out.println(copyFile(inputFile, outputFile));

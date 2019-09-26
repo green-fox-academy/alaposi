@@ -17,12 +17,10 @@ public class Main {
     intruduction = secondStudent.introduce();
     System.out.println(intruduction);
 
-
-
     //ZigZagStudent.numberOfDNAPairs
 
     int pairs = ZigZagStudent.numberOfDNAPairs;
-    pairs = firstStudent.getPairs();   // sign of the sith!!! ne csináld ilyet!
+    //pairs = firstStudent.getPairs();   // sign of the sith!!! ne csináld ilyet!
   }
 }
 

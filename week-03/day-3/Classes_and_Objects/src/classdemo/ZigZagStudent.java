@@ -7,7 +7,9 @@ public class ZigZagStudent {
   int phase;
   int codeMasterPoints;
 
-  static int numberOfDNAPairs = 23;  //static - állandó érték, class-hoz tartozik, nem az instance-hoz
+  static int numberOfDNAPairs = 23;  //static - állandó érték, class-hoz tartozik,
+  // nem az instance-hoz
+
 
   //constructors
   public ZigZagStudent() {
@@ -15,12 +17,18 @@ public class ZigZagStudent {
 
   //konstruktor - a neve megegyezik a class nevével
   // nem kell static és void
-  // A konstruktor csak arra való, hogy létrehozza és beállítsa az instance-ot, más dolgokat (pl print) nem írunk bele.
+  // A konstruktor csak arra való, hogy létrehozza és beállítsa az instance-ot,
+  // más dolgokat (pl print) nem írunk bele.
   // ha nincs beleírva semmi a konstrukroba, akkor a default érvényes
 
   public ZigZagStudent(String studentName) {
-    this.name = studentName.toUpperCase();
+    if (studentName.startsWith("Dr.")) {
+      studentName = "Dr." + studentName;
+    }
+    name = studentName.toUpperCase();
   }
+
+
 
   // A this a class name-re utal (a this a tulajdonképpen that :)).
   // A this a névütközés elkerülésére való, ha különböző nevet használok, akkor nem
@@ -59,12 +67,6 @@ public class ZigZagStudent {
       phase++;
     }
   }
-
-
-
-
-
-
 
 
 }

@@ -26,7 +26,7 @@ public class Animal {
     thirst++;
   }
 
-  public int get(){
+  public int getHunger(){
     return hunger;
   }
 }

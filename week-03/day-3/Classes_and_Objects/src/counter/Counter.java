@@ -14,10 +14,12 @@ public class Counter {
   }
 
   public void add(int number) {
-    fieldValue = fieldValue + number;
+
+    fieldValue += number;
   }
 
   public void add() {
+
     fieldValue++;
   }
 
@@ -28,6 +30,7 @@ public class Counter {
   public int reset() {
     fieldValue = initialValue;
     return fieldValue;
+    //return initialValue;
   }
 }
 

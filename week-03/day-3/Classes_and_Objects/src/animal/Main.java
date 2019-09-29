@@ -16,7 +16,7 @@ public class Main {
     System.out.println("hunger: " + dog.hunger);
 
     Animal cat = new Animal(100);
-    System.out.println("cat's hunger: " + cat.get());
+    System.out.println("cat's hunger: " + cat.getHunger());
 
 
 

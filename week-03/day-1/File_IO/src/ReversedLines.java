@@ -7,15 +7,14 @@ import java.util.List;
 
 public class ReversedLines {
   public static void main(String[] args) {
-
     String fileToDecrypt = "reversed-lines.txt";
-
     decrypt(fileToDecrypt);
   }
 
   public static void decrypt(String filename) {
     Path path = Paths.get(filename);
     List<String> lines = new ArrayList<>();
+
     try {
       lines = Files.readAllLines(path);
     } catch (IOException e) {
@@ -27,6 +26,7 @@ public class ReversedLines {
       StringBuilder sb = new StringBuilder(lines.get(i));
       newLines.add(sb.reverse().toString());
     }
+
     try {
       Files.write(path, newLines);
     } catch (IOException e) {

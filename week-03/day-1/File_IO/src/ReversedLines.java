@@ -8,10 +8,10 @@ import java.util.List;
 public class ReversedLines {
   public static void main(String[] args) {
     String fileToDecrypt = "reversed-lines.txt";
-    decrypt(fileToDecrypt);
+    reverseLines(fileToDecrypt);
   }
 
-  public static void decrypt(String filename) {
+  public static void reverseLines(String filename) {
     Path path = Paths.get(filename);
     List<String> lines = new ArrayList<>();
 

@@ -1,0 +1,31 @@
+body {
+  background-color: lightgrey;
+  display: flex;
+}
+
+form {
+  display: inline-block;
+}
+
+label, input, button {
+  display: block;
+  margin: auto;
+}
+
+
+div {
+  background-color: white;
+  width: 400px; 
+  margin: auto;
+}
+
+label, p {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+  margin: auto;
+}
+

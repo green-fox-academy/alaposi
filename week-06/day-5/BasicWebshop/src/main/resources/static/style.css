@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 30px;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: rgb(1, 188, 212);
+    border: none;
+    border-bottom: rgb(1, 188, 212) 1px solid;
+}
+
+button {
+    background-color: red;
+    color: white;
+    height: 2em;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 2em 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+label {
+    display: block;
+    font-size: 0.75em;
+    color: red;
+}
+
+.search {
+    height: 2.5em;
+    font-size: 1.2em;
+    border: solid 1px red;
+    border-radius: 5px;
+    margin-top: 0;
+}
+
+input {
+    width: 30em;
+}
+
+table {
+    width: 720px;
+}
+
+th {
+    background-color: rgb(1, 188, 212);
+    height: 5em;
+}
+
+tr {
+    border: solid 1px rgb(1, 188, 212);
+    font-family: sans-serif;
+}
+
+.name, .desc {
+    padding-left: 10px;
+}
+
+.desc {
+    font-size: 0.8em;
+}
+
+.price, .stock {
+    width: 100px;
+    text-align: center;
+}
+
+.average {
+  font-size: 2em;
+  color: black;
+  border-bottom: none;
+}
+
+
+
+
+

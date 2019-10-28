@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th class="id">Index</th>
+            <th>Name</th>
+            <th>is a king</th>
+            <th>Balance</th>
+            <th>Animal Type</th>
+            <th>Good/Bad</th>
+        </tr>
+        <!--                                                 ha ez igaz         akkor piros     ha hamis: fekete-->
+        <tr th:each="account : ${accountList}" th:style="${account.isKing() ? 'color: red' : 'color: black'}">
+            <!--  <tr th:each="account : ${accountList}" th:style="|${account.isKing() == true} color: red|">-->
+            <!--<td class="id" th:text="${accountList.indexOf(account)}"></td>-->
+            <td class="id" th:text="${accountStat.index}"></td>
+            <td th:text="${account.getName()}"></td>
+            <td th:text="${account.isKing()}"></td>
+            <td type="number" th:text="${#numbers.formatDecimal(account.getBalance(), 0, 2, 'POINT')} +' Zebra'"></td>
+            <td th:text="${account.getAnimalType()}"></td>
+            <td th:text="${account.isGood() ? 'is good guy' : 'is bad guy'}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

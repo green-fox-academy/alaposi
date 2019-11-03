@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+<h1>Bank of Simba</h1>
 <div>
     <table>
         <tr>
@@ -17,17 +18,78 @@
             <th>Good/Bad</th>
         </tr>
         <!--                                                 ha ez igaz         akkor piros     ha hamis: fekete-->
-        <tr th:each="account : ${accountList}" th:style="${account.isKing() ? 'color: red' : 'color: black'}">
+        <tr th:each="account : ${accountList}" th:style="${account.getisKing() ? 'color: red' : 'color: black'}">
             <!--  <tr th:each="account : ${accountList}" th:style="|${account.isKing() == true} color: red|">-->
             <!--<td class="id" th:text="${accountList.indexOf(account)}"></td>-->
             <td class="id" th:text="${accountStat.index}"></td>
             <td th:text="${account.getName()}"></td>
-            <td th:text="${account.isKing()}"></td>
+            <td th:text="${account.getisKing() ? 'King' : ''}"></td>
             <td type="number" th:text="${#numbers.formatDecimal(account.getBalance(), 0, 2, 'POINT')} +' Zebra'"></td>
             <td th:text="${account.getAnimalType()}"></td>
             <td th:text="${account.isGood() ? 'is good guy' : 'is bad guy'}"></td>
         </tr>
     </table>
+    <div class="raise">
+        <form th:action="@{/raise}" method='post'>
+            <label for="request">Found raise</label>
+            <select th:name="nameOfOwner" id="request">
+                <option th:each="account : ${accountList}" th:text="${account.getName()}"
+                        th:value="${account.getName()}"></option>
+            </select>
+            <button type="submit">raise</button>
+        </form>
+    </div>
+    <div class="create">
+        <h2>Create new bank account</h2>
+        <form th:action="@{/add}" method="post">
+            <div>
+                <label for="name">Enter the name</label>
+                <input type="text" name="name" id="name" required><br>
+            </div>
+            <fieldset>
+                <legend>Kingdom status</legend>
+                <label for="king">I am a king</label>
+                <input id="king"
+                       name="status"
+                       type="radio"
+                       value="true"
+                ><br>
+                <label for="noking">I am not a king</label>
+                <input id="noking"
+                       name="status"
+                       type="radio"
+                       value="false">
+            </fieldset>
+            <div>
+                <label for="balance">Account balance</label>
+                <input type="number"
+                       name="balance"
+                       id="balance"
+                       required>
+            </div>
+            <div>
+                <label for="animaltype">Enter the animal species</label>
+                <input type="text" name="animaltype" id="animaltype" placeholder="lion" required><br>
+            </div>
+            <fieldset>
+                <legend>Goodness status</legend>
+                <label for="good">I am a good guy</label>
+                <input id="good"
+                       name="goodOrBad"
+                       type="radio"
+                       value="true"
+                ><br>
+                <label for="bad">I am a bad guy</label>
+                <input id="bad"
+                       name="goodOrBad"
+                       type="radio"
+                       value="false">
+            </fieldset>
+
+
+            <button type="submit">submit</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

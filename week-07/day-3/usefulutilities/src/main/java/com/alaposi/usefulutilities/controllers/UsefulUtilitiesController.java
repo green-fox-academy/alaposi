@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class UsefulUtilities {
+public class UsefulUtilitiesController {
 
   UtilityService utilityService;
 
   @Autowired
-  public UsefulUtilities(UtilityService utilityService) {
+  public UsefulUtilitiesController(UtilityService utilityService) {
     this.utilityService = utilityService;
   }
 

@@ -6,3 +6,12 @@ th, td {
 .id {
     width: 50px;
 }
+
+.raise, .create {
+    margin-top: 40px;
+}
+
+fieldset {
+    width: 150px;
+    margin-top: 20px;
+}

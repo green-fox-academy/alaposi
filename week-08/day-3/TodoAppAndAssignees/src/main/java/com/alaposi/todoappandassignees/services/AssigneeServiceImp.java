@@ -41,4 +41,9 @@ public class AssigneeServiceImp implements IAssigneeService {
   @Override
   public void editNameOfAssignee(Long Id) {
   }
+
+  @Override
+  public Assignee findById(Long id) {
+    return assigneeRepository.findById(id).get();
+  }
 }

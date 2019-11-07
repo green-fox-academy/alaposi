@@ -20,6 +20,7 @@
         <td class="desc" th:text="${assignee.getName()}"></td>
         <td class="price" th:text="${assignee.getEmail()}"></td>
         <td><a th:href="@{'/assignee/' + ${assignee.getId()} +'/delete'}">delete</a></td>
+        <td><a th:href="@{'/assignee/' + ${assignee.getId()} +'/edit'}">edit</a></td>
     </tr>
 </table>
 

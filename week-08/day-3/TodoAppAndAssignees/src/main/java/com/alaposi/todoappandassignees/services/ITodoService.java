@@ -14,6 +14,7 @@ public interface ITodoService {
   List<Todo> searched(String searchedTodo);
   void save(Todo todo);
   void delete(Long id);
+  Todo findById(Long id);
 
 
 }

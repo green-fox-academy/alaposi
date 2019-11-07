@@ -54,6 +54,12 @@ public class TodoServiceImp implements ITodoService {
     todoRepository.deleteById(id);
   }
 
+  @Override
+  public Todo findById(Long id) {
+    return todoRepository.findById(id).get();
+  }
+
+
 //  @Override
 //  public List<Todo> findAllByUrgentAndDone(Boolean urgent, Boolean done){
 //    return todoRepository.findAll() ) {

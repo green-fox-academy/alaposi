@@ -29,6 +29,7 @@
         <td class="stock" th:text="${todo.isUrgent()}"></td>
 <!--        <td><a th:href="@{'/todo/delete/' + ${todo.getId()}}">delete</a></td>-->
        <td><a th:href="@{'/todo/' + ${todo.getId()} +'/delete'}">delete</a></td>
+       <td><a th:href="@{'/todo/' + ${todo.getId()} +'/edit'}">edit</a></td>
     </tr>
 </table>
 

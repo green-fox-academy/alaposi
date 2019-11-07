@@ -7,7 +7,7 @@ public class Todo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)  //automatikusan növeli az értéket
-  private long id;
+  private Long id;
   @Column(name = "action")
   private String title;
   private boolean urgent = false;

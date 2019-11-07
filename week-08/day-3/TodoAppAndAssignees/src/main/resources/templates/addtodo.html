@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignee list</title>
+</head>
+<body>
+<h1>Add TODO</h1>
+
+<p></p>
+
+<form th:action="@{/todo/add}" method='post' th:object="${todo}">
+    <label for="name">Title</label>
+    <input class="x" type="text" th:field="*{title}" id="name" placeholder="Heni"><br>
+    <button class="x" type="submit">Add todo</button>
+</form>
+
+</body>
+</html>

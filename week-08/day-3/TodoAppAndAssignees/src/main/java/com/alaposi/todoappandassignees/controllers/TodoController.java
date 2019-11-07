@@ -42,13 +42,20 @@ public class TodoController {
   }
 
   @GetMapping(value = "/add")
-  public String add(@ModelAttribute (name = "todo") Todo todo){
+  public String add(@ModelAttribute(name = "todo") Todo todo) {
     return "addtodo";
   }
 
   @PostMapping(value = "/add")
-  public String save(@ModelAttribute (name ="todo") Todo todo){
+  public String save(@ModelAttribute(name = "todo") Todo todo) {
     service.save(todo);
+    return "redirect:/todo/list";
+  }
+
+  // @GetMapping(value = "/delete/{id}")
+  @GetMapping(value = "/{id}/delete")
+  public String delete(@PathVariable(name = "id") Long id) {
+    service.delete(id);
     return "redirect:/todo/list";
   }
 

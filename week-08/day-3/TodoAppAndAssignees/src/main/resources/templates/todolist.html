@@ -19,18 +19,21 @@
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th></th>
+
     </tr>
     <tr th:each="todo : ${todos}">
         <td class="name" th:text="${todo.getId()}"></td>
         <td class="desc" th:text="${todo.getTitle()}"></td>
         <td class="price" th:text="${todo.isDone()}"></td>
         <td class="stock" th:text="${todo.isUrgent()}"></td>
+<!--        <td><a th:href="@{'/todo/delete/' + ${todo.getId()}}">delete</a></td>-->
+       <td><a th:href="@{'/todo/' + ${todo.getId()} +'/delete'}">delete</a></td>
     </tr>
 </table>
 
 <a href="/todo/add/">Add new todo</a><br>
 <a href="/assignee/">List of Assignees</a><br>
-
 
 </body>
 </html>

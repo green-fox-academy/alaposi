@@ -3,6 +3,7 @@ package com.alaposi.jsonproject.controllers;
 import com.alaposi.jsonproject.models.*;
 import com.alaposi.jsonproject.models.Number;
 import com.alaposi.jsonproject.services.ILogService;
+import com.alaposi.jsonproject.services.ISithService;
 import com.alaposi.jsonproject.services.NumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,11 +18,13 @@ public class MyRestController {
 
   private NumberService numberService;
   private ILogService iLogService;
+  private ISithService iSithService;
 
   @Autowired
-  public MyRestController(NumberService numberService, ILogService iLogService) {
+  public MyRestController(NumberService numberService, ILogService iLogService, ISithService iSithService) {
     this.numberService = numberService;
     this.iLogService = iLogService;
+    this.iSithService = iSithService;
   }
 
   @GetMapping(value = "/doubling")
@@ -98,5 +101,10 @@ public class MyRestController {
   @GetMapping(value = "/log")
   public ResponseEntity<Object> listLogs() {
     return ResponseEntity.status(HttpStatus.OK).body(new LogOutput(iLogService.listAllLog(), iLogService.listAllLog().size()));
+  }
+
+  @PostMapping(value ="/sith")
+  public ResponseEntity<Object> reverseText(@RequestBody(required = false) Sith text){
+    return ResponseEntity.status(HttpStatus.OK).body(new Yoda(iSithService.reverseSentence(text.getText())));
   }
 }

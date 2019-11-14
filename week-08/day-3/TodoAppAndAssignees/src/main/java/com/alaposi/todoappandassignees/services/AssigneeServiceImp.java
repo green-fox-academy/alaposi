@@ -32,8 +32,8 @@ public class AssigneeServiceImp implements IAssigneeService {
 
   @Override
 //  public void addNewAssignee(String name, String email) {
-////    assigneeRepository.save(new Assignee(name, email));
-  //}
+//    assigneeRepository.save(new Assignee(name, email));
+//}
   public void save(Assignee assignee) {
     assigneeRepository.save(assignee);
   }
@@ -44,6 +44,10 @@ public class AssigneeServiceImp implements IAssigneeService {
 
   @Override
   public Assignee findById(Long id) {
-    return assigneeRepository.findById(id).get();
+    if (!assigneeRepository.findById(id).isPresent()) {
+      return null;
+    } else {
+      return assigneeRepository.findById(id).get();
+    }
   }
 }

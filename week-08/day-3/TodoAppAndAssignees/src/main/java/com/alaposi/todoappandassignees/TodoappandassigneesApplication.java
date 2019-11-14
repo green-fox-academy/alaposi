@@ -18,6 +18,7 @@ public class TodoappandassigneesApplication implements CommandLineRunner {
   @Autowired
   public TodoappandassigneesApplication(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
     this.todoRepository = todoRepository;
+    this.assigneeRepository = assigneeRepository;
   }
 
   public static void main(String[] args) {
@@ -38,5 +39,19 @@ public class TodoappandassigneesApplication implements CommandLineRunner {
 
 //    assigneeRepository.save(new Assignee("Heni", "havasi.heni0@gmail.com"));
 //    assigneeRepository.save(new Assignee("Ági", "agnes.laposi@gmail.com"));
+
+    Assignee henriett = new Assignee("Henriett", "havasi.heni@gmail.com");
+    Assignee agnes = new Assignee("Agnes", "agnes.laposi@gmail.com");
+    Todo arrangeWedding = new Todo("arrange the wedding", true, false);
+    Todo learnJava = new Todo("learn Java");
+
+    henriett.addTodo(arrangeWedding);
+    agnes.addTodo(learnJava);
+
+//    assigneeRepository.save(henriett);
+//    assigneeRepository.save(agnes);
+
+
+
   }
 }

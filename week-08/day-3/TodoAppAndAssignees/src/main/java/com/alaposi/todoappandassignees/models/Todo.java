@@ -12,13 +12,21 @@ public class Todo {
   private String title;
   private boolean urgent = false;
   private boolean done = false;
+  @Transient
+  private Long assigneeId;
+//  private String assigneeName;
+
+  @ManyToOne  //ide nem kell semmi, mert a oneToMany-nél  meg van adva.
+  private Assignee assignee;
 
 
-  public Todo(long id, String title, boolean urgent, boolean done) {
+  public Todo(long id, String title, boolean urgent, boolean done, Assignee assignee) {
     this.id = id;
     this.title = title;
     this.urgent = urgent;
     this.done = done;
+    this.assignee = assignee;
+
   }
 
   public Todo(String title, boolean urgent, boolean done) {
@@ -34,7 +42,7 @@ public class Todo {
     this.title = title;
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
@@ -64,5 +72,38 @@ public class Todo {
 
   public void setDone(boolean done) {
     this.done = done;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
+
+  public Long getAssigneeIdForEditing(){
+    return assigneeId;
+  }
+
+  public Long getAssigneeId() {
+    if (assignee == null) {
+      return 0L;   //L -longként értelmezi a nullát
+    } else {
+      return assignee.getId();
+    }
+  }
+
+
+  public String getAssigneeName() {
+    if (assignee == null) {
+      return "";
+    } else {
+      return assignee.getName();
+    }
+  }
+
+  public void setAssigneeId(Long assigneeId) {
+    this.assigneeId = assigneeId;
   }
 }

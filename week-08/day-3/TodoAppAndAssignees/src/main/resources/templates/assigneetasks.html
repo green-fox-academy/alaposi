@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+</head>
+<body>
+<h1 th:text="${assigneename}"></h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>Done</th>
+        <th>Urgent</th>
+        <th>Assignee</th>
+
+        <th></th>
+
+    </tr>
+    <tr th:each="todo : ${todolist}">
+        <td th:text="${todo.getId()}"></td>
+        <td th:text="${todo.getTitle()}"></td>
+        <td th:text="${todo.isDone()}"></td>
+        <td th:text="${todo.isUrgent()}"></td>
+        <td th:text="${todo.getAssignee()}"></td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>

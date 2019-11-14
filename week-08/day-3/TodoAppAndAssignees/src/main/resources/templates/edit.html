@@ -14,8 +14,16 @@
     <input type="checkbox" id="urgent" th:field="*{urgent}"><br>
     <label for="done">Done</label>
     <input type="checkbox" id="done" th:field="*{done}"><br>
-    <button type=" submit">edit</button>
-    <a href="/todo/list">Cancel</a><br>
+    <div>
+        <label for='assignee'>Select assignee</label>
+        <select id='assignee' th:field="*{assigneeId}">
+            <option th:each="assignee: ${assignees}" th:value="${assignee.getId()}"
+                    th:text="${assignee.getName()}"></option>
+        </select>
+
+        <button type=" submit">edit</button>
+        <a href="/todo/list">Cancel</a><br>
+    </div>
 </form>
 
 

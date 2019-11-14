@@ -50,8 +50,8 @@ public class TodoServiceImp implements ITodoService {
   }
 
   @Override
-  public void delete(Long id) {
-    todoRepository.deleteById(id);
+  public void delete(Todo todo) {
+    todoRepository.delete(todo);
   }
 
   @Override

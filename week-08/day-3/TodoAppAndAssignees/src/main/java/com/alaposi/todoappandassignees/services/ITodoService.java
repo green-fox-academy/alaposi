@@ -13,7 +13,7 @@ public interface ITodoService {
   //List<Todo> findAllByUrgentAndDone(Boolean urgent, Boolean done);
   List<Todo> searched(String searchedTodo);
   void save(Todo todo);
-  void delete(Long id);
+  void delete(Todo todo);
   Todo findById(Long id);
 
 

@@ -1,9 +1,8 @@
 package com.alaposi.todoappandassignees.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -13,13 +12,23 @@ public class Assignee {
   private long id;
   private String name;
   private String email;
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignee", fetch = FetchType.LAZY)  //mapped by: mi legyen a foerign key
+  private List<Todo> todoList;
 
-  public Assignee() {
+  public Assignee() {  //üres konstruktorban is legyen arraylist
+    this.todoList = new ArrayList<>();
+  }
+
+  public Assignee(String name, String email, List<Todo> todoList) {
+    this.name = name;
+    this.email = email;
+    this.todoList = todoList;
   }
 
   public Assignee(String name, String email) {
     this.name = name;
     this.email = email;
+    this.todoList = new ArrayList<>();
   }
 
   public String getName() {
@@ -45,4 +54,21 @@ public class Assignee {
   public void setId(long id) {
     this.id = id;
   }
+
+  public List<Todo> getTodoList() {
+    return todoList;
+  }
+
+ // public void setTodoList(List<Todo> todoList) {
+  public void addTodo(Todo todo) {
+    todo.setAssignee(this);  //itt állítom be a todo-hoz az assignee-t
+    this.todoList.add(todo);
+  }
+
+  @Override
+  public String toString() {
+    return this.name;
+  }
+
+
 }

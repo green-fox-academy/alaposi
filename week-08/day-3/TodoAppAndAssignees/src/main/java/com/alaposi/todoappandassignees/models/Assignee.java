@@ -12,7 +12,8 @@ public class Assignee {
   private long id;
   private String name;
   private String email;
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignee", fetch = FetchType.LAZY)  //mapped by: mi legyen a foerign key
+  @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)  //mapped by: mi legyen a foerign key
+  @JoinColumn(name="assignee_id")
   private List<Todo> todoList;
 
   public Assignee() {  //üres konstruktorban is legyen arraylist

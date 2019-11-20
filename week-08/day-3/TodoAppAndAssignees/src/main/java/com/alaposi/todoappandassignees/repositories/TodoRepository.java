@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -17,5 +18,8 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   @Query(value = "select * FROM Todo t WHERE t.action Like :partOfAction", nativeQuery = true)
   List<Todo> findTodoByActionNamePart(@Param("partOfAction") String searched);
+
+  @Query(value = "select * FROM Todo t WHERE date(t.action) = date(:dueDate) ", nativeQuery = true)
+  List<Todo> findTodoByDueDate(@Param("dueDate") Date dueDate);
 
 }

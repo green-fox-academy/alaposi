@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,7 +18,6 @@ public class TodoServiceImp implements ITodoService {
   @Autowired
   public TodoServiceImp(TodoRepository todoRepository) {
     this.todoRepository = todoRepository;
-
   }
 
   @Override
@@ -40,8 +40,8 @@ public class TodoServiceImp implements ITodoService {
   }
 
   @Override
-  public List<Todo> searched(String searchedTodo) {
-    return todoRepository.findTodoByActionNamePart("%" + searchedTodo + "%");
+  public List<Todo> searched(Date searchedTodo) {
+    return todoRepository.findTodoByDueDate(searchedTodo);
   }
 
   @Override

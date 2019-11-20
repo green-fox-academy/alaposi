@@ -1,6 +1,9 @@
 package com.alaposi.todoappandassignees.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -10,35 +13,37 @@ public class Todo {
   private Long id;
   @Column(name = "action")
   private String title;
-  private boolean urgent = false;
-  private boolean done = false;
+  private boolean urgent;
+  private boolean done;
+  private Date creationDate;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date dueDate;
   @Transient
   private Long assigneeId;
-//  private String assigneeName;
 
   @ManyToOne  //ide nem kell semmi, mert a oneToMany-nél  meg van adva.
   private Assignee assignee;
 
 
-  public Todo(long id, String title, boolean urgent, boolean done, Assignee assignee) {
+  public Todo(long id, String title, boolean urgent, boolean done, Assignee assignee, Date dueDate) {
+    this(title, urgent, done);
     this.id = id;
-    this.title = title;
-    this.urgent = urgent;
-    this.done = done;
     this.assignee = assignee;
-
+    this.dueDate = dueDate;
   }
 
   public Todo(String title, boolean urgent, boolean done) {
-    this.title = title;
+    this(title);
     this.urgent = urgent;
     this.done = done;
   }
 
   public Todo() {
+    this.creationDate = new Date();
   }
 
   public Todo(String title) {
+    this();
     this.title = title;
   }
 
@@ -82,7 +87,7 @@ public class Todo {
     this.assignee = assignee;
   }
 
-  public Long getAssigneeIdForEditing(){
+  public Long getAssigneeIdForEditing() {
     return assigneeId;
   }
 
@@ -94,7 +99,6 @@ public class Todo {
     }
   }
 
-
   public String getAssigneeName() {
     if (assignee == null) {
       return "";
@@ -105,5 +109,21 @@ public class Todo {
 
   public void setAssigneeId(Long assigneeId) {
     this.assigneeId = assigneeId;
+  }
+
+  public Date getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public Date getDueDate() {
+    return dueDate;
+  }
+
+  public void setDueDate(Date dueDate) {
+    this.dueDate = dueDate;
   }
 }

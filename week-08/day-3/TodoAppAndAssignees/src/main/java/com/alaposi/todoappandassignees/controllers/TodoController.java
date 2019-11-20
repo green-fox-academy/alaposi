@@ -1,17 +1,20 @@
 package com.alaposi.todoappandassignees.controllers;
 
-import com.alaposi.todoappandassignees.models.Assignee;
 import com.alaposi.todoappandassignees.models.Todo;
-import com.alaposi.todoappandassignees.services.AssigneeServiceImp;
 import com.alaposi.todoappandassignees.services.IAssigneeService;
 import com.alaposi.todoappandassignees.services.ITodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 @Controller
 @RequestMapping("/todo")  //így minden end point úgy kezdődik, hogy /todo
@@ -26,30 +29,26 @@ public class TodoController {
     this.assigneeService = assigneeService;
   }
 
-//  @GetMapping(value = {"/", "/list"})
-//  public String list(Model model) {
-//    model.addAttribute("todos", todoService.findAll());
-//    return "todolist";
-//  }
-
   @GetMapping(value = {"/", "/list"})
   public String list(@RequestParam(required = false) Boolean isActive, Model model) {
     //Boolean active = isActive.equals("true") ? true : false;
     //List<Todo> list = service.findAllByDone(isActive);
     model.addAttribute("todos", service.findAllByDone(isActive));
-    // model.addAttribute("assignee", assigneeService)
-    //model.addAttribute("todos", service.findAllByUrgentAndDone
     return "todolist";
   }
 
   @PostMapping(value = {"/", "/list"})
-  public String search(Model model, @RequestParam String searched) {
-    model.addAttribute("todos", service.searched(searched));
+  public String search(Model model, @RequestParam String searched) throws ParseException {
+    DateFormat  df = new SimpleDateFormat("yyyy-MM-dd");
+    Date parsedDate = df.parse(searched);
+    model.addAttribute("todos", service.searched(parsedDate));
     return "todolist";
   }
 
   @GetMapping(value = "/add")
-  public String add(@ModelAttribute(name = "todo") Todo todo) {
+//  public String add(@ModelAttribute(name = "todo") Todo todo) {
+  public String add(Model model) {
+    model.addAttribute("todo", new Todo());
     return "addtodo";
   }
 
@@ -60,10 +59,9 @@ public class TodoController {
   }
 
   // @GetMapping(value = "/delete/{id}")
-  //@GetMapping(value = "/{id}/delete")
   @GetMapping(value = "/{id}/delete")
   public String delete(@PathVariable(name = "id") Long id) {
-   // service.delete(service.findById(id));
+    // service.delete(service.findById(id));
     service.delete(id);
     return "redirect:/todo/list";
   }
@@ -72,7 +70,7 @@ public class TodoController {
   public String showEditForm(Model model, @PathVariable(name = "id") Long id) {
     model.addAttribute("editedTodo", service.findById(id));
     model.addAttribute("assignees", assigneeService.findAll());
-    return "edit";
+    return "edittodo";
   }
 
   @PostMapping(value = "/{editedId}/edit")
@@ -82,6 +80,4 @@ public class TodoController {
     service.save(edited);
     return "redirect:/todo/list";
   }
-
-
 }

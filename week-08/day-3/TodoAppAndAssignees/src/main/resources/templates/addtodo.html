@@ -10,8 +10,10 @@
 <p></p>
 
 <form th:action="@{/todo/add}" method='post' th:object="${todo}">
-    <label for="name">Title</label>
-    <input class="x" type="text" th:field="*{title}" id="name" placeholder="Heni"><br>
+    <label for="title">Title</label>
+    <input class="x" type="text" th:field="*{title}" id="title" placeholder="todo"><br>
+<!--    <label for="urgent">Title</label>-->
+<!--    <input class="x" type="text" th:field="*{urgent}" id="urgent" placeholder="true"><br>-->
     <button class="x" type="submit">Add todo</button>
 </form>
 

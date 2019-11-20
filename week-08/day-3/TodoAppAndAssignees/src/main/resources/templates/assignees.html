@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignee list</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>Assignees</h1>
+<div class="container">
+<h1>Assignees</h1><br>
 
-<a href="/assignee/add">Add new assignee</a>
-<table>
+<a href="/assignee/add" class="btn btn-warning">Add new assignee</a><br>
+<table class="table">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -23,8 +25,16 @@
         <td><a th:href="@{'/assignee/' + ${assignee.getId()} +'/delete'}">delete</a></td>
         <td><a th:href="@{'/assignee/' + ${assignee.getId()} +'/edit'}">edit</a></td>
     </tr>
-</table>
+</table><br>
+</div>
+<div class="container">
+    <div class="row justify-content-left">
+        <a href="/todo/list/" class="btn btn-light">Back to todo list</a>
+    </div>
+</div>
 
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>
